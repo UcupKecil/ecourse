@@ -97,22 +97,16 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="course-card">
                                 <div class="course-thumbnail">
-                                    <a href="{{ Auth::user() ? '#' : '/auth/register/' . $course->slug }}">
+                                    <a href="{{ url('/course/' . $course->slug) }}">
                                         <img src="{{ asset('assets/images/courses/' . $course->image) }}"
                                             class="img-fluid course-image" alt="{{ $course->name }}">
                                     </a>
                                 </div>
                                 <div class="course-content">
-                                    @if ($course->crossed_price > $course->price)
-                                        <span class="course-price">
-                                            <del>Rp. {{ number_format($course->crossed_price) }}</del>
-                                        </span>
-                                        <br>
-                                    @endif
                                     <span class="course-price">Rp. {{ number_format($course->price) }}</span>
                                     <h3 class="course-title">
-                                        <a
-                                            href="{{ Auth::user() ? '#' : '/auth/register/' . $course->slug }}">{{ $course->name }}</a>
+                                        <a href="{{ url('/course/' . $course->slug) }}">{{ $course->name }}</a>
+                                        <div id="countdown"></div>
                                     </h3>
                                     {{-- <div class="course-rating">
                                         <span class="star-rating-group">
@@ -149,32 +143,7 @@
         </section>
     @endif
     <!--end course area-->
-    <!--start discount area-->
-    <section class="discount-area overlay">
-        <div class="container">
-            <div class="discount-wrap">
-                <!--start discount-image-->
-                <div class="discount-img">
-                    <img src="{{ asset('assets/templates/omexo/assets/images/img-1.jpg') }}" class="img-fluid"
-                        alt="image">
-                </div>
-                <!--end discount-image-->
-                <!--start discount-content-->
-                <div class="discount-cont">
-                    <h4>Limited time offer</h4>
-                    <h2>50% Discount On All Of Our New & Upcoming Courses</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing . Donec odio. Quisque volutpat mattis eros.
-                        Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit.</p>
-                    <div id="countdown"></div>
-                    <div class="btn-default">
-                        <a href="#">Enroll Now</a>
-                    </div>
-                </div>
-                <!-- end discount-content -->
-            </div>
-        </div>
-    </section>
-    <!--end discount-area-->
+   
     <!--start testimonial-area-->
     <section class="testimonial-area">
         <div class="container">
@@ -283,25 +252,7 @@
         </div>
     </section>
     <!--end testimonial area-->
-    <!--start newsletter area-->
-    <section class="newsletter-area">
-        <div class="container">
-            <div class="row newsletter-wrap overlay">
-                <div class="col-lg-6">
-                    <h2>Subscribe Our Newsletter</h2>
-                </div>
-                <div class="col-lg-6">
-                    <div class="subscribe-form">
-                        <form>
-                            <input type="email" placeholder="Your email address">
-                            <button type="submit">Subscribe Now</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--end newsletter area-->
+   
     <!--start why choose area-->
     <section class="why-choose-area">
         <div class="container">
@@ -309,11 +260,10 @@
                 <!--start why choose heading-->
                 <div class="col-md-4">
                     <div class="why-choose-intro">
-                        <h2>Why Choose Us?</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat.</p>
-                        <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
+                        <h2>BENEFIT</h2>
+                       
                         <div class="why-choose-btn">
-                            <a href="#">Learn More</a>
+                            <a href="#">DAFTAR</a>
                         </div>
                     </div>
                 </div>
@@ -328,9 +278,9 @@
                                         class="img-fluid" alt="image">
                                 </div>
                                 <div class="why-choose-cont">
-                                    <h3>High Quality Courses</h3>
-                                    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet
-                                        orci. Aenean dignissim.</p>
+                                    <h3>Waktu Singkat</h3>
+                                    <p>Tidak membutuhkan banyak waktu 
+                                        untuk mengerjakan bisnisnya dari belajar, praktek sampai mendapatkan hasil</p>
                                 </div>
                             </div>
                         </div>
@@ -343,9 +293,9 @@
                                         class="img-fluid" alt="image">
                                 </div>
                                 <div class="why-choose-cont">
-                                    <h3>Expert Instructors</h3>
-                                    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet
-                                        orci. Aenean dignissim.</p>
+                                    <h3>Tidak Butuh Modal</h3>
+                                    <p>Setelah mengeluarkan investasi kelas 1X saja, 
+                                        untuk mempraktekkan materinya ada tidak memerlukan tambahan modal</p>
                                 </div>
                             </div>
                         </div>
@@ -358,9 +308,9 @@
                                         class="img-fluid" alt="image">
                                 </div>
                                 <div class="why-choose-cont">
-                                    <h3>Life Time Access</h3>
-                                    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet
-                                        orci. Aenean dignissim.</p>
+                                    <h3>Hanya Dari HP</h3>
+                                    <p>Video tutorial FULL 100% dari HP dan praktek materinya pun 100% juga hanya dari HP, 
+                                        tanpa perlu laptop dan bisa sambil rebahan</p>
                                 </div>
                             </div>
                         </div>
@@ -373,9 +323,9 @@
                                         class="img-fluid" alt="image">
                                 </div>
                                 <div class="why-choose-cont">
-                                    <h3>Dedicated Support</h3>
-                                    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet
-                                        orci. Aenean dignissim.</p>
+                                    <h3>Tempat Flexible</h3>
+                                    <p>Bisa dikerjakan kapan saja, dimana saja sesuai dengan kesibukan masing-masing. 
+                                        Sambil kerja, urus rumah, sambil santai, dll</p>
                                 </div>
                             </div>
                         </div>
@@ -387,210 +337,82 @@
         </div>
     </section>
     <!--end why choose area-->
-    <!--start team area-->
-    <section class="team-area bg-gray">
+   
+   
+    <!--start newsletter area-->
+    <section class="newsletter-area">
         <div class="container">
-            <div class="row">
-                <!--start sec-heading-->
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="sec-heading text-center">
-                        <h4>Instructors</h4>
-                        <h2>Our Expert Instructors </h2>
-                    </div>
-                </div>
-                <!--end sec-heading-->
-            </div>
-            <div class="row">
-                <!--start member-single-->
-                <div class="col-md-3">
-                    <div class="instructor-single shadow-none">
-                        <div class="instructor-image">
-                            <img src="{{ asset('assets/templates/omexo/assets/images/instructor-1.jpg') }}"
-                                class="img-fluid" alt="image">
-                            <div class="instructor-links">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="instructor-body">
-                            <h4>Shane Warne</h4>
-                            <p>Instructor</p>
-                        </div>
-                    </div>
-                </div>
-                <!--end member-single-->
-                <!--start member-single-->
-                <div class="col-md-3">
-                    <div class="instructor-single shadow-none">
-                        <div class="instructor-image">
-                            <img src="{{ asset('assets/templates/omexo/assets/images/instructor-1.jpg') }}"
-                                class="img-fluid" alt="image">
-                            <div class="instructor-links">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="instructor-body">
-                            <h4>Avelina Smith</h4>
-                            <p>Instructor</p>
-                        </div>
-                    </div>
-                </div>
-                <!--end member-single-->
-                <!--start member-single-->
-                <div class="col-md-3">
-                    <div class="instructor-single shadow-none">
-                        <div class="instructor-image">
-                            <img src="{{ asset('assets/templates/omexo/assets/images/instructor-1.jpg') }}"
-                                class="img-fluid" alt="image">
-                            <div class="instructor-links">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="instructor-body">
-                            <h4>John Bond</h4>
-                            <p>Instructor</p>
-                        </div>
-                    </div>
-                </div>
-                <!--end member-single-->
-                <!--start member-single-->
-                <div class="col-md-3">
-                    <div class="instructor-single shadow-none">
-                        <div class="instructor-image">
-                            <img src="{{ asset('assets/templates/omexo/assets/images/instructor-1.jpg') }}"
-                                class="img-fluid" alt="image">
-                            <div class="instructor-links">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="instructor-body">
-                            <h4>Sophia Smith</h4>
-                            <p>Instructor</p>
-                        </div>
-                    </div>
-                </div>
-                <!--end member-single-->
-            </div>
+        <div class="course-curriculum">
+                                        <h3>QNA Tanya Jawab Tentang Kelas:</h3>
+                                        <div id="accordion">
+                                            <!--start curriculum single-->
+                                            <div class="card active">
+                                                <div class="card-header two active">
+                                                    <a class="card-link" data-toggle="collapse" href="#collapseOne">Untuk daftar apakah perlu banyak followers dulu??</a>
+                                                </div>
+                                                <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                                                    <div class="card-body current">
+                                                        <div class="course-lesson">
+                                                            <p>TIDAK.! Semua testimoni hasil dari peserta kelas, mereka memulai praktek dari NOL Followers</p>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end curriculum single-->
+                                            <!--start curriculum single-->
+                                            <div class="card">
+                                                <div class="card-header two">
+                                                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">Apakah cocok untuk pemula bahkan yang belum punya akun TikTok?</a>
+                                                </div>
+                                                <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        <div class="course-lesson">
+                                                            <p>YA.! Sangat cocok. Materi kelas dimulai dari NOL dari membuat akun TikTok</p>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end curriculum single-->
+                                            <!--start curriculum single-->
+                                            <div class="card">
+                                                <div class="card-header two">
+                                                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">Apakah ada biaya perpanjangan tahunan atau biaya lainnya setelah daftar?</a>
+                                                </div>
+                                                <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        <div class="course-lesson">
+                                                            <p>Kelas ini hanya sekali bayar unt seumur hidup dan GRATIS update materi tanpa syarat, dan dalam menjalankan
+                                                                 praktekknya tidak perlu biaya lagi kecuali kota internet saja.</p>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end curriculum single-->
+                                            <!--start curriculum single-->
+                                            <div class="card">
+                                                <div class="card-header two">
+                                                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseFour">
+                                                    Apakah ada jaminan pasti berhasil?</a>
+                                                </div>
+                                                <div id="collapseFour" class="collapse" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        
+                                                        <div class="course-lesson">
+                                                            <p>TIDAK ADA.! Keberhasilan di tangan peserta dalam mempraktekkan materi kelas. Saya hanya bisa tunjukkan Testimoni/BUKTI yang sudah berhasil.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end curriculum single-->
+                                        </div>
+                                    </div>
         </div>
     </section>
-    <!--end team-area-->
-    <!--start blog-area-->
-    <section class="blog-area">
-        <div class="container">
-            <div class="row">
-                <!--start sec-heading-->
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="sec-heading text-center">
-                        <h4>blog</h4>
-                        <h2>Latest News</h2>
-                    </div>
-                </div>
-                <!--end sec-heading-->
-            </div>
-            <div class="row blog-post">
-                <!--start blog single-->
-                <div class="col-md-4">
-                    <div class="blog-post-single">
-                        <div class="post-media">
-                            <img src="{{ asset('assets/templates/omexo/assets/images/blog-5.jpg') }}" class="img-fluid"
-                                alt="image">
-                        </div>
-                        <div class="blog-post-content">
-                            <ul class="post-meta">
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user"><span>Omexo</span></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-calendar"><span>20 Jan, 2022</span></i>
-                                    </a>
-                                </li>
-                            </ul>
-                            <h3><a href="#">Learn Webs Applications Development from Experts</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit.
-                                Pellentesque aliquet</p>
-                        </div>
-                    </div>
-                </div>
-                <!--end blog single-->
-                <!--start blog single-->
-                <div class="col-md-4">
-                    <div class="blog-post-single">
-                        <div class="post-media">
-                            <img src="{{ asset('assets/templates/omexo/assets/images/blog-5.jpg') }}" class="img-fluid"
-                                alt="image">
-                        </div>
-                        <div class="blog-post-content">
-                            <ul class="post-meta">
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user"><span>Omexo</span></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-calendar"><span>22 Jan, 2022</span></i>
-                                    </a>
-                                </li>
-                            </ul>
-                            <h3><a href="#">Expand Your Career Opportunities With Python</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit.
-                                Pellentesque aliquet</p>
-                        </div>
-                    </div>
-                </div>
-                <!--end blog single-->
-                <!--start blog single-->
-                <div class="col-md-4">
-                    <div class="blog-post-single">
-                        <div class="post-media">
-                            <img src="{{ asset('assets/templates/omexo/assets/images/blog-5.jpg') }}" class="img-fluid"
-                                alt="image">
-                        </div>
-                        <div class="blog-post-content">
-                            <ul class="post-meta">
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user"><span>Omexo</span></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-calendar"><span>24 Jan, 2022</span></i>
-                                    </a>
-                                </li>
-                            </ul>
-                            <h3><a href="#">Complete PHP Programming Career Guideline</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit.
-                                Pellentesque aliquet</p>
-                        </div>
-                    </div>
-                </div>
-                <!--end blog single-->
-            </div>
-        </div>
-    </section>
-    <!--end blog-area-->
+    <!--end newsletter area-->
+
+    
 @endsection
 <!--end footer-->
