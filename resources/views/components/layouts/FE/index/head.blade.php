@@ -21,7 +21,13 @@
     <!--main css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/templates/omexo/assets/css/style.css') }}">
     <!--responsive css-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/templates/omexo/assets/css/responsive.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/templates/omexo/assets/css/stylecuriculum0.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/templates/omexo/assets/css/stylecuriculum1.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/templates/omexo/assets/css/stylecuriculum4.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/templates/omexo/assets/css/stylecuriculum3.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/templates/omexo/assets/css/stylecuriculum5.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/templates/omexo/assets/css/stylecuriculum6.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/templates/omexo/assets/css/stylecuriculum7.css') }}">
     <!--jQuery js-->
     <script src="{{ asset('assets/templates/omexo/assets/js/jquery-3.3.1.min.js') }}"></script>
     @stack('style')
